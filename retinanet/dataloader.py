@@ -395,21 +395,6 @@ class Augmenter(object):
 
         return sample
 
-class AugBright(object):
-    
-    def __call__(self, sample):
-        image, annots = sample['img'], sample['annot']
-        if random.random() < 0.8:
-            alpha = random.uniform(0.3, 0.4)
-            image = image.astype('float')
-            image *= alpha
-            image = image.clip(min=0, max=255)
-            # print(img)
-            sample = {'img': image, 'annot': annots}
-        
-        return sample 
-        
-
 class Normalizer(object):
 
     def __init__(self):
